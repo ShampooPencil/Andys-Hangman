@@ -1,15 +1,18 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
 import { Auth0Provider } from "@auth0/auth0-react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Login from './Login.js';
 import LogoutBtn from './LogoutBtn.js';
 import Profile from './Profile.js'
+import AndysHangman from './AndysHangman.js';
 
 
 export default function App(){
   return(
     <div>
+      <AndysHangman/>
       <Login/>
       <LogoutBtn/>
       <Profile/>
