@@ -1,22 +1,35 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
 import { Auth0Provider } from "@auth0/auth0-react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Login from './Login.js';
 import LogoutBtn from './LogoutBtn.js';
 import Profile from './Profile.js'
 import AndysHangman from './AndysHangman.js';
+import Navbar from './Navbar.js';
+import Home from './Home.js';
+import Register from './Register.js'
+import About from './About.js';
 
 
 export default function App(){
   return(
-    <div>
-      <AndysHangman/>
-      <Login/>
-      <LogoutBtn/>
-      <Profile/>
-    </div>
+    <BrowserRouter>
+        <div className="whole_html_container">
+        <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            {/* <Route path="/" element={!session ? <Auth /> : <Account key={session.user.id} session={session} />}></Route> */}
+            <Route path="/play" element={<AndysHangman />}></Route>
+            <Route path="/profile" element={<Profile/>}></Route>
+            <Route path="/register" element={<Register/>}></Route>
+            <Route path="/login" element={<Login/>}></Route>
+            <Route path="/about" element={<About/>}></Route>
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          </Routes>
+       </div>
+      </BrowserRouter>
   )
 }
 const root = createRoot(document.querySelector("#react-root"));
